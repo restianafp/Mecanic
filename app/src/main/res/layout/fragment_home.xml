@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Home">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_home"
+            android:layout_marginHorizontal="@dimen/marginleft"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/namaUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mbold"
+                        android:textColor="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/btnLocation"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@color/white"
+                            android:src="@drawable/ic_baseline_location_on_24" />
+
+                        <TextView
+                            android:id="@+id/lokasiUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:fontFamily="@font/pregular"
+                            android:text="Atur lokasi"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/fontSmall" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <io.github.florent37.shapeofview.shapes.CircleView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:elevation="4dp"
+                    app:shape_circle_borderColor="@color/mainColor"
+                    app:shape_circle_borderWidth="1dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/fotoProfil"
+                        android:layout_width="50dp"
+                        android:layout_height="49dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/view"
+                        app:layout_constraintTop_toTopOf="@+id/view" />
+                </io.github.florent37.shapeofview.shapes.CircleView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_input"
+                android:fontFamily="@font/pregular"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:drawablePadding="@dimen/paddingSmall"
+                android:text="Mau cari daerah apa?"
+                android:inputType="text"
+                android:lines="1"
+                android:paddingLeft="15dp"
+                android:textColor="@color/grayFont"
+                android:gravity="center_vertical"
+                android:textSize="15sp" />
+
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="225dp"
+                        android:layout_height="115dp"
+                        android:src="@drawable/iklan"
+                        android:layout_marginRight="@dimen/marginleft"/>
+
+                    <ImageView
+                        android:layout_width="225dp"
+                        android:layout_height="115dp"
+                        android:src="@drawable/iklan"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Servis yang diinginkan"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/marginleft"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="170dp"
+                            android:layout_height="166dp"
+                            android:src="@drawable/motor" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="170dp"
+                            android:layout_height="166dp"
+                            android:src="@drawable/mobil"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Rekomendasi montir"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/viewMontir"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="?actionBarSize"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/card_recommended_montir"
+                    android:orientation="horizontal"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</FrameLayout>

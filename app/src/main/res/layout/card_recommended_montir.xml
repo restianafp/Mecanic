@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="1dp"
+    android:layout_marginRight="@dimen/marginleft"
+    app:cardElevation="3dp"
+    app:contentPadding="5dp"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:padding="@dimen/paddingSmall"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/montirIv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/icon_nopic"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:id="@+id/montirTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Montir"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/psemibold"
+            android:textSize="@dimen/fontReg"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/montirSpek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobil"
+            android:drawablePadding="3dp"
+            android:drawableLeft="@drawable/ic_baseline_accessibility_24"
+            android:fontFamily="@font/plight"
+            android:textSize="@dimen/fontSmall"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp">
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/grayFont"
+                android:progressTint="@color/mainColor" />
+
+            <TextView
+                android:id="@+id/jumlahRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="@dimen/fontSmall"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

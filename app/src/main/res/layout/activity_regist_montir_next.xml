@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegistMontirNext">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginBottom="16dp">
+
+               <ImageView
+                   android:id="@+id/imageView"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:adjustViewBounds="true"
+                   android:src="@drawable/header4"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0" />
+
+               <LinearLayout
+                   android:id="@+id/linearLayout3"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="90dp"
+                   android:orientation="vertical"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintVertical_bias="0.0">
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="24dp"
+                       android:fontFamily="@font/mbold"
+                       android:text="@string/appTitle"
+                       android:textColor="@color/white"
+                       android:textSize="25sp" />
+
+                   <TextView
+                       android:id="@+id/textView"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="24dp"
+                       android:fontFamily="@font/pregular"
+                       android:text="Daftarkan akun anda disini"
+                       android:textColor="@color/white"
+                       android:textSize="13sp" />
+
+               </LinearLayout>
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Spesialisasi"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_input"
+                    android:popupBackground="@color/white"
+                    android:fontFamily="@font/pregular"
+                    android:lines="1"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayFont"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Nama Bengkel"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/bengkelEt"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_input"
+                    android:fontFamily="@font/pregular"
+                    android:hint="Masukan nama bengkel"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayFont"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/address"
+                    android:fontFamily="@font/pmedium"
+                    android:text="@string/alamat"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/pilihKota"
+                    android:popupBackground="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:hintText="Pilih kota"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/bg_input" />
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/alamatEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_input"
+                        android:fontFamily="@font/pregular"
+                        android:hint="Masukan alamat"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:paddingLeft="15dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grayFont"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <ImageButton
+                        android:id="@+id/gpsBtn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@drawable/bg_input1"
+                        android:src="@drawable/ic_baseline_gps_fixed_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/alamatEt"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Jam Operasional"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/jamBuka"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/marginleft"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_input"
+                        android:fontFamily="@font/pregular"
+                        android:hint="Jam buka"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:paddingHorizontal="15dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grayFont"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/pregular"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_marginRight="@dimen/marginleft"/>
+
+
+                    <EditText
+                        android:id="@+id/jamTutup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_input"
+                        android:fontFamily="@font/pregular"
+                        android:hint="Jam tutup"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:paddingHorizontal="15dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grayFont"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Nomor WA"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fontReg" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/phoneNumEtMont"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_input"
+                    android:fontFamily="@font/pregular"
+                    android:hint="Masukan nomor whatsapp"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:paddingLeft="15dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grayFont"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:layout_marginVertical="40dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_daftar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_btn_login"
+                    android:fontFamily="@font/pmedium"
+                    android:text="@string/sign_up_btn"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/fontReg" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pmedium"
+                        android:text="Sudah punya akun?"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontSmall" />
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/login_btn"
+                        android:textColor="@color/mainColor"
+                        android:textSize="@dimen/fontSmall" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

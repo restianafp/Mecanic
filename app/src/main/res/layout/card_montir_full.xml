@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/paddingReg">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/fotoMontir"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon_nopic"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/marginleft">
+
+            <TextView
+                android:id="@+id/namaMontir"
+                android:paddingLeft="@dimen/paddingSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Montir"
+                android:fontFamily="@font/psemibold"
+                android:textSize="@dimen/fontReg"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/namaBengkel"
+                android:paddingLeft="@dimen/paddingSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perusahaan"
+                android:fontFamily="@font/plight"
+                android:textSize="@dimen/fontSmall"
+                android:textColor="@color/grayFont"/>
+
+            <TextView
+                android:id="@+id/alamatBengkel"
+                android:paddingLeft="@dimen/paddingSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat"
+                android:fontFamily="@font/plight"
+                android:textSize="@dimen/fontSmall"
+                android:textColor="@color/grayFont"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:padding="@dimen/paddingSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_star_border_24"
+                    android:text="Rating"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/plight"
+                    android:textSize="@dimen/fontSmall"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/jarak"
+                    android:padding="@dimen/paddingSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                    android:drawablePadding="5dp"
+                    android:text="Jarak"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/plight"
+                    android:textSize="@dimen/fontSmall"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/spek"
+                    android:padding="@dimen/paddingSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spek"
+                    android:layout_weight="1"
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@drawable/ic_baseline_accessibility_24"
+                    android:fontFamily="@font/plight"
+                    android:textSize="@dimen/fontSmall"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/jamOperasi"
+                android:padding="@dimen/paddingSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:text="Jam"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/plight"
+                android:textSize="@dimen/fontSmall"
+                android:textColor="@color/black"/>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

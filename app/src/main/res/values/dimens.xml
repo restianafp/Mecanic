@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fontReg">17sp</dimen>
+    <dimen name="fontSmall">12sp</dimen>
+    <dimen name="marginleft">20dp</dimen>
+    <dimen name="margin_left_home">25dp</dimen>
+    <dimen name="margin_top_home">30dp</dimen>
+    <dimen name="fontMed">14dp</dimen>
+    <dimen name="marginSmall">15dp</dimen>
+    <dimen name="paddingSmall">5dp</dimen>
+    <dimen name="paddingReg">15dp</dimen>
+</resources>

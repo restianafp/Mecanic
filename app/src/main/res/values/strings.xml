@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mecanic</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+    <string name="login_btn">Masuk</string>
+    <string name="sign_up_btn">Daftar</string>
+    <string name="appTitle">Mecanic</string>
+    <string name="user">Pelanggan</string>
+    <string name="montir">Montir</string>
+    <string name="email_label">Email</string>
+    <string name="btn_next">Berikutnya</string>
+    <string name="alamat">Alamat</string>
+    <string name="notif_sukses">Selamat! Akun Anda berhasil dibuat. Verifikasi akun Anda segera!</string>
+    <string name="lupa_password"><u>Lupa password?</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

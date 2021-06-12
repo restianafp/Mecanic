@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_home"
+        android:layout_marginHorizontal="@dimen/marginleft">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fotoProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <io.github.florent37.shapeofview.shapes.CircleView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:elevation="4dp"
+                app:shape_circle_borderColor="@color/mainColor"
+                app:shape_circle_borderWidth="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- YOUR CONTENT -->
+                <ImageView
+                    android:id="@+id/fotoUser"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/icon_nopic"
+                     />
+
+
+            </io.github.florent37.shapeofview.shapes.CircleView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/infoUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/marginleft"
+            android:layout_toRightOf="@id/fotoProfile">
+
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/psemibold"
+                android:textSize="@dimen/fontReg"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pregular"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/nomorHp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pregular"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/editBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:layout_alignParentRight="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/infoUser"
+            android:layout_marginTop="@dimen/margin_top_home">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pmedium"
+                android:text="Akun"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fontReg"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_list_menu"
+                android:padding="@dimen/paddingSmall"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/margin_top_home"
+                    android:layout_height="@dimen/margin_top_home"
+                    android:src="@drawable/ic_baseline_verified_user_24"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Verifikasi Akun"
+                    android:textSize="@dimen/fontMed"
+                    android:fontFamily="@font/plight"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/marginleft"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_list_menu"
+                android:padding="@dimen/paddingSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/margin_top_home"
+                    android:layout_height="@dimen/margin_top_home"
+                    android:src="@drawable/ic_baseline_language_24"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Bahasa"
+                    android:textSize="@dimen/fontMed"
+                    android:fontFamily="@font/plight"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/marginleft"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_list_menu"
+                android:padding="@dimen/paddingSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/margin_top_home"
+                    android:layout_height="@dimen/margin_top_home"
+                    android:src="@drawable/ic_baseline_help_center_24"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bantuan"
+                    android:textSize="@dimen/fontMed"
+                    android:fontFamily="@font/plight"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/marginleft"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logout"
+                android:background="@drawable/bg_list_menu"
+                android:padding="@dimen/paddingSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/marginSmall"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/margin_top_home"
+                    android:layout_height="@dimen/margin_top_home"
+                    android:src="@drawable/ic_baseline_exit_to_app_24"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Keluar Akun"
+                    android:textSize="@dimen/fontMed"
+                    android:fontFamily="@font/plight"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/marginleft"/>
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</FrameLayout>

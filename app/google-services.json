@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "806547828643",
+    "project_id": "mecanic-7161d",
+    "storage_bucket": "mecanic-7161d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806547828643:android:5d220d4a2bcc232db4b416",
+        "android_client_info": {
+          "package_name": "com.vokasi.mecanic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806547828643-u1jjf65hr4a79rd1tndrgioe44t6h3nb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm6aCjj_U9BgmG1xt9y6C1XVrCGXvQAyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806547828643-u1jjf65hr4a79rd1tndrgioe44t6h3nb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchingPage"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_home"
+        android:layout_marginHorizontal="@dimen/marginleft">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/lokasiTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/backBtn"
+            android:text="Lokasi Anda"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fontMed"
+            android:fontFamily="@font/plight"
+            android:layout_marginLeft="@dimen/marginleft"/>
+
+        <TextView
+            android:id="@+id/lokasiResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lokasiTag"
+            android:layout_toRightOf="@id/backBtn"
+            android:text="Lokasi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fontMed"
+            android:fontFamily="@font/pmedium"
+            android:layout_marginLeft="@dimen/marginleft"/>
+
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginHorizontal="@dimen/marginleft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/searchEDT"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_input"
+            android:fontFamily="@font/pregular"
+            android:hint="Mau cari daerah apa?"
+            android:inputType="text"
+            android:lines="1"
+            android:paddingLeft="50dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grayFont"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/searchBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/bg_input1"
+        android:src="@drawable/ic_baseline_search_24"
+        android:layout_marginLeft="@dimen/marginleft" />
+
+    <TextView
+        android:layout_marginHorizontal="@dimen/marginleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil Pencarian"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fontMed"
+        android:fontFamily="@font/plight"
+        android:layout_marginLeft="@dimen/marginleft"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/hasilPencarian"
+            tools:listitem="@layout/card_montir_full"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

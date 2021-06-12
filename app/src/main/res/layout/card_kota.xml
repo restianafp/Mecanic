@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/namaKota"
+    android:paddingLeft="@dimen/paddingSmall"
+    android:layout_width="match_parent"
+    android:gravity="left"
+    android:layout_height="40dp"
+    android:fontFamily="@font/pregular"
+    android:textSize="@dimen/fontMed"
+    android:textColor="@color/black"/>
