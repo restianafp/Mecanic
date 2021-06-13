@@ -14,6 +14,7 @@ public class UserMontir {
     String buka;
     String tutup;
     String phoneNum;
+    String photo_Uri;
 
 
     public UserMontir(){
@@ -21,9 +22,10 @@ public class UserMontir {
 
 
 
+
     public UserMontir(String accType, String email, String username, String password,
-                      String firstName, String lastName, String keahlian, String bengkel,  String kota, String alamat,
-                      String buka, String tutup, String phoneNum) {
+                      String firstName, String lastName, String keahlian, String bengkel, String kota, String alamat,
+                      String buka, String tutup, String phoneNum, String photo_Uri) {
         this.accType = accType;
         this.email = email;
         this.username = username;
@@ -37,6 +39,7 @@ public class UserMontir {
         this.buka = buka;
         this.tutup = tutup;
         this.phoneNum = phoneNum;
+        this.photo_Uri = photo_Uri;
 
     }
 
@@ -143,6 +146,14 @@ public class UserMontir {
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public String getPhoto_Uri() {
+        return photo_Uri;
+    }
+
+    public void setPhoto_Uri(String photo_Uri) {
+        this.photo_Uri = photo_Uri;
     }
 
 

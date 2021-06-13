@@ -15,21 +15,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/montirIv"
+        <io.github.florent37.shapeofview.shapes.CircleView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:src="@drawable/icon_nopic"
-            android:layout_marginRight="5dp" />
+            android:layout_gravity="center_horizontal">
+
+            <!-- YOUR CONTENT -->
+            <ImageView
+                android:id="@+id/fotoMontir"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                />
+
+
+        </io.github.florent37.shapeofview.shapes.CircleView>
 
         <TextView
             android:id="@+id/montirTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Montir"
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/psemibold"
             android:textSize="@dimen/fontReg"
@@ -39,7 +43,6 @@
             android:id="@+id/montirSpek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mobil"
             android:drawablePadding="3dp"
             android:drawableLeft="@drawable/ic_baseline_accessibility_24"
             android:fontFamily="@font/plight"

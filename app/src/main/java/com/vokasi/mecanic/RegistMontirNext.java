@@ -78,6 +78,7 @@ public class RegistMontirNext extends AppCompatActivity implements
     private static final int REQUEST_LOCATION_PERMISSION=1;
     FusedLocationProviderClient fusedLocationProviderClient;
     private String[] spesialisasi ={"Pilih spesialisasi keahlian", "Motor", "Mobil"};
+    private ArrayAdapter arrayAdapter;
 
 
 
@@ -100,59 +101,34 @@ public class RegistMontirNext extends AppCompatActivity implements
         spinner.setOnItemSelectedListener(this);
         gpsBtn = findViewById(R.id.gpsBtn);
         phoneNumEtMont= findViewById(R.id.phoneNumEtMont);
-//        pilihKota = findViewById(R.id.pilihKota);
-//        pilihKota.setOnItemSelectedListener(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.spinner_kota, spesialisasi);
+        arrayAdapter = new ArrayAdapter(this, R.layout.spinner_kota, spesialisasi);
         arrayAdapter.setDropDownViewResource(R.layout.card_kota);
         spinner.setAdapter(arrayAdapter);
 
         firebaseAuth= FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("daerah").child("kota");
-//        iFirebaseSavedData = this;
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Mohon tunggu");
         progressDialog.setCanceledOnTouchOutside(false);
 
 
-        gpsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getLocation();
-            }
+        gpsBtn.setOnClickListener(v -> getLocation());
+
+        jamBuka.setOnClickListener(v -> {
+            timePickerDialog = new TimePickerDialog(RegistMontirNext.this, (timePicker, hourOfDay, minutes) -> jamBuka.setText(String.format("%02d:%02d", hourOfDay, minutes)), 0, 0, true);
+
+            timePickerDialog.show();
+        });
+        jamTutup.setOnClickListener(v -> {
+            timePickerDialog = new TimePickerDialog(RegistMontirNext.this, (timePicker, hourOfDay, minutes) -> jamTutup.setText(String.format("%02d:%02d", hourOfDay, minutes)), 0, 0, true);
+
+            timePickerDialog.show();
         });
 
-        jamBuka.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timePickerDialog = new TimePickerDialog(RegistMontirNext.this, (timePicker, hourOfDay, minutes) -> {
-
-                    jamBuka.setText(String.format("%02d:%02d", hourOfDay, minutes));
-                }, 0, 0, true);
-
-                timePickerDialog.show();
-            }
-        });
-        jamTutup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timePickerDialog = new TimePickerDialog(RegistMontirNext.this, (timePicker, hourOfDay, minutes) -> {
-
-                    jamTutup.setText(String.format("%02d:%02d", hourOfDay, minutes));
-                }, 0, 0, true);
-
-                timePickerDialog.show();
-            }
-        });
-
-        daftar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputData();
-            }
-        });
+        daftar.setOnClickListener(v -> inputData());
 
 
     }
@@ -170,7 +146,15 @@ public class RegistMontirNext extends AppCompatActivity implements
                         public void onLocationResult(LocationResult locationResult){
                             Location location=locationResult.getLastLocation();
                             if(location!=null){
-                                new FetchAddress(RegistMontirNext.this, RegistMontirNext.this).execute(location);
+                                try {
+                                    Geocoder geocoder = new Geocoder(RegistMontirNext.this, Locale.getDefault());
+                                    List<Address> addresses = geocoder.getFromLocation(
+                                            location.getLatitude(), location.getLongitude(),1
+                                    );
+                                    new FetchAddress(RegistMontirNext.this, RegistMontirNext.this).execute(location);
+                                }
+                                catch (IOException e){
+                                    e.printStackTrace();}
                             }
                         }
 
@@ -227,7 +211,7 @@ public class RegistMontirNext extends AppCompatActivity implements
         buka = jamBuka.getText().toString();
         tutup = jamTutup.getText().toString();
         phoneNum = phoneNumEtMont.getText().toString();
-        photo_uri = "gs://mecanic-7161d.appspot.com/icon_nopic.png";
+        photo_uri = "https://firebasestorage.googleapis.com/v0/b/mecanic-7161d.appspot.com/o/icon_nopic.png?alt=media&token=1c0d4374-837d-4f94-bf94-34110169ff85";
 
         createAccount();
 
@@ -253,46 +237,37 @@ public class RegistMontirNext extends AppCompatActivity implements
         //create account
 
         firebaseAuth.createUserWithEmailAndPassword(email,password)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        //berhasil dibuat
-                        savedFirebaseData();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                //gagal dibuat
-                progressDialog.dismiss();
-                Toast.makeText(RegistMontirNext.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                .addOnSuccessListener(authResult -> {
+                    //berhasil dibuat
+                    savedFirebaseData();
+                }).addOnFailureListener(e -> {
+                    //gagal dibuat
+                    progressDialog.dismiss();
+                    Toast.makeText(RegistMontirNext.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 
     private void savedFirebaseData() {
         progressDialog.setMessage("Menyimpan info akun...");
 
         Map<String, Object> montir = new HashMap<>();
-        montir.put("Tipe akun", accType);
-        montir.put("Email", email);
-        montir.put("Nama depan", firstName);
-        montir.put("Nama belakang", lastName);
-        montir.put("Keahlian", keahlian);
-        montir.put("Bengkel", bengkel);
-        montir.put("Alamat", alamat);
-        montir.put("Jam Buka", buka);
-        montir.put("Jam Tutup", tutup);
-        montir.put("Nomor HP", phoneNum);
-        montir.put("Photo_Uri", photo_uri);
+        montir.put("accType", accType);
+        montir.put("email", email);
+        montir.put("firstName", firstName);
+        montir.put("lastName", lastName);
+        montir.put("keahlian", keahlian);
+        montir.put("bengkel", bengkel);
+        montir.put("alamat", alamat);
+        montir.put("buka", buka);
+        montir.put("tutup", tutup);
+        montir.put("phoneNum", phoneNum);
+        montir.put("photo_Uri", photo_uri);
 
-        FirebaseFirestore.getInstance().collection("Users").add(montir).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                progressDialog.dismiss();
-                Intent loginSucces = new Intent(RegistMontirNext.this, LoginPage.class);
-                startActivity(loginSucces);
+        FirebaseFirestore.getInstance().collection("Users").add(montir).addOnSuccessListener(documentReference -> {
+            progressDialog.dismiss();
+            Intent loginSucces = new Intent(RegistMontirNext.this, LoginPage.class);
+            startActivity(loginSucces);
 
-            }
         });
 
 

@@ -25,7 +25,7 @@ public class FetchAddress extends AsyncTask<Location,Void,String> {
         Geocoder geocoder=new Geocoder(mContext, Locale.getDefault());
         Location location=locations[0];
         List<Address> addresses=null;
-        String resultMsg="";
+        String resultMsg;
         try {
             addresses=geocoder.getFromLocation(location.getLatitude(), location.getLongitude(),  1);
         } catch (IOException e) {
@@ -36,12 +36,17 @@ public class FetchAddress extends AsyncTask<Location,Void,String> {
         }else{
             Address address=addresses.get(0);
            ArrayList<String> addressParts=new ArrayList<>();
-            for(int i=0;
-                i<=address.getMaxAddressLineIndex();
-                i++){
-                addressParts.add(address.getAddressLine(i));
-            }
-            resultMsg= TextUtils.join("\n", addressParts);
+//            for(int i=0;
+//                i<=address.getMaxAddressLineIndex();
+//                i++){
+//                addressParts.add(address.getAddressLine(i));
+//            }
+//            resultMsg= TextUtils.join("\n", addressParts);
+            addressParts.add(address.getThoroughfare());
+            addressParts.add(address.getSubLocality());
+            addressParts.add(address.getLocality());
+            addressParts.add(address.getSubAdminArea());
+            resultMsg= TextUtils.join(",", addressParts);
         }
         return resultMsg;
     }
