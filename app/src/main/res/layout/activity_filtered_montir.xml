@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".activity.FilteredMontir">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_home"
+        android:layout_marginHorizontal="@dimen/marginleft">
+
+        <ImageButton
+            android:id="@+id/backBtnFiltered"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/lokasiTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/backBtnFiltered"
+            android:text="Lokasi Anda"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fontMed"
+            android:fontFamily="@font/plight"
+            android:layout_marginLeft="@dimen/marginleft"/>
+
+        <TextView
+            android:id="@+id/lokasiResultFiltered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lokasiTag"
+            android:layout_toRightOf="@id/backBtnFiltered"
+            android:text="Lokasi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fontMed"
+            android:fontFamily="@font/pmedium"
+            android:layout_marginLeft="@dimen/marginleft"/>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/hasilPencarianFiltered"
+            tools:listitem="@layout/card_montir_full"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPage"
+    tools:context=".activity.LoginPage"
     android:background="@color/white">
 
     <ImageView
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:fontFamily="@font/pregular"
-            android:text="Selamat datang di"
+            android:text="@string/selamat_datang_di"
             android:textColor="@color/white"
             android:textSize="@dimen/fontReg" />
 
@@ -165,6 +165,7 @@
                 android:background="@drawable/bg_btn_login"
                 android:fontFamily="@font/pmedium"
                 android:text="@string/login_btn"
+                android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:textSize="@dimen/fontReg" />
 
@@ -178,7 +179,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Belum punya akun?"
+                    android:text="@string/belum_punya_akun"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontSmall" />
 
@@ -188,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:fontFamily="@font/pmedium"
-                    android:text="Daftar"
+                    android:text="@string/sign_up_btn"
                     android:textColor="@color/mainColor"
                     android:textSize="@dimen/fontSmall" />
             </LinearLayout>

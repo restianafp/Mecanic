@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Home">
+    tools:context=".fragment.Home">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                         android:id="@+id/namaUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/mbold"
+                        android:fontFamily="@font/msemibold"
                         android:textColor="@color/black" />
 
                     <LinearLayout
@@ -59,7 +59,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
                             android:fontFamily="@font/pregular"
-                            android:text="Atur lokasi"
                             android:textColor="@color/black"
                             android:textSize="@dimen/fontSmall" />
                     </LinearLayout>
@@ -98,7 +97,7 @@
                 android:fontFamily="@font/pregular"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:drawablePadding="@dimen/paddingSmall"
-                android:text="Mau cari daerah apa?"
+                android:text="@string/mau_cari_daerah_apa"
                 android:inputType="text"
                 android:lines="1"
                 android:paddingLeft="15dp"
@@ -109,7 +108,8 @@
 
             <HorizontalScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollbarStyle="outsideInset">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -139,7 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Servis yang diinginkan"
+                    android:text="@string/servis_yang_diinginkan"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
@@ -151,6 +151,7 @@
                     android:weightSum="2">
 
                     <LinearLayout
+                        android:id="@+id/motor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -163,6 +164,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/mobil"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -189,7 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Rekomendasi montir"
+                    android:text="@string/rekomendasi_montir"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 

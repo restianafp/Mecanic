@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_rect"
+    android:id="@+id/bottomSheetContainer"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Berikan Penilaian"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/marginSmall"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/grayColor"/>
+
+    <RatingBar
+        android:id="@+id/ratingBarInput"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/marginleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.RatingBar"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/grayFont"
+        android:progressTint="@color/mainColor" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/marginleft"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_login"
+        android:fontFamily="@font/pmedium"
+        android:text="Kirim"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="@dimen/fontReg" />
+
+
+
+</LinearLayout>

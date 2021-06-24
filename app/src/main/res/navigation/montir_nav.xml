@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/montir_nav"
+    app:startDestination="@id/home_montir">
+
+    <fragment
+        android:id="@+id/home_montir"
+        android:name="com.vokasi.mecanic.fragment.HomeMontir"
+        android:label="fragment_home_montir"
+        tools:layout="@layout/fragment_home_montir" />
+    <fragment
+        android:id="@+id/notification_montir"
+        android:name="com.vokasi.mecanic.fragment.NotificationMontir"
+        android:label="fragment_notification_montir"
+        tools:layout="@layout/fragment_notification_montir" />
+    <fragment
+        android:id="@+id/profile_montir"
+        android:name="com.vokasi.mecanic.fragment.ProfileMontir"
+        android:label="fragment_profile_montir"
+        tools:layout="@layout/fragment_profile_montir" />
+</navigation>

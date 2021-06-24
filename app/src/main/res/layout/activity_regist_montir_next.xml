@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegistMontirNext">
+    tools:context=".activity.RegistMontirNext">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -152,15 +152,6 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
-                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                    android:id="@+id/pilihKota"
-                    android:popupBackground="@color/white"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    app:hintText="Pilih kota"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/bg_input" />
-
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -168,7 +159,9 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+
+                    <TextView
+                        android:gravity="center_vertical"
                         android:id="@+id/alamatEt"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
@@ -192,9 +185,8 @@
                         android:id="@+id/gpsBtn"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
                         android:background="@drawable/bg_input1"
+                        android:layout_marginRight="10dp"
                         android:src="@drawable/ic_baseline_gps_fixed_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/alamatEt"

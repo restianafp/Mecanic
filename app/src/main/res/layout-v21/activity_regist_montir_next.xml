@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".RegistMontirNext">
+    tools:context=".activity.RegistMontirNext">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                        android:layout_height="wrap_content"
                        android:layout_marginLeft="24dp"
                        android:fontFamily="@font/pregular"
-                       android:text="Daftarkan akun anda disini"
+                       android:text="@string/daftarkan_akun_anda_disini"
                        android:textColor="@color/white"
                        android:textSize="13sp" />
 
@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Spesialisasi"
+                    android:text="@string/spek"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Nama Bengkel"
+                    android:text="@string/nama_bengkel"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
@@ -127,7 +127,7 @@
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/bg_input"
                     android:fontFamily="@font/pregular"
-                    android:hint="Masukan nama bengkel"
+                    android:hint="@string/masukan_nama_bengkel"
                     android:inputType="text"
                     android:lines="1"
                     android:paddingLeft="15dp"
@@ -150,18 +150,9 @@
                     android:id="@+id/address"
                     android:fontFamily="@font/pmedium"
                     android:text="@string/alamat"
+                    android:lines="1"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
-
-
-<!--                <com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
-<!--                    android:id="@+id/pilihKota"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:popupBackground="@color/white"-->
-<!--                    android:layout_height="40dp"-->
-<!--                    android:layout_marginLeft="@dimen/paddingSmall"-->
-<!--                    android:layout_marginBottom="@dimen/paddingSmall"-->
-<!--                    app:hintText="Pilih kota" />-->
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -169,16 +160,19 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+
+                    <TextView
+                        android:gravity="center_vertical"
                         android:id="@+id/alamatEt"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_input"
                         android:fontFamily="@font/pregular"
-                        android:hint="Masukan alamat"
+                        android:hint="@string/masukan_alamat"
                         android:inputType="text"
                         android:lines="1"
                         android:paddingLeft="15dp"
+                        android:layout_marginTop="5dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grayFont"
                         android:textSize="15sp"
@@ -206,6 +200,8 @@
 
             </LinearLayout>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -217,52 +213,56 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Jam Operasional"
+                    android:text="@string/jam_operasional"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/jamBuka"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
                         android:layout_marginTop="5dp"
-                        android:layout_marginRight="@dimen/marginleft"
                         android:layout_marginBottom="12dp"
+                        android:layout_height="40dp"
+                        android:layout_width="match_parent"
                         android:background="@drawable/bg_input"
                         android:fontFamily="@font/pregular"
-                        android:hint="Jam buka"
-                        android:inputType="text"
+                        android:hint="@string/jam_buka"
                         android:lines="1"
+                        android:layout_weight="1"
                         android:paddingHorizontal="15dp"
                         android:textColor="@color/black"
                         android:textColorHint="@color/grayFont"
                         android:textSize="15sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="222dp"
                         android:layout_height="wrap_content"
-                        android:text="-"
                         android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:fontFamily="@font/pregular"
-                        android:textSize="15sp"
+                        android:text="-"
                         android:textColor="@color/black"
-                        android:layout_marginRight="@dimen/marginleft"/>
+                        android:textSize="15sp" />
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/jamTutup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:gravity="center_vertical"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
                         android:background="@drawable/bg_input"
                         android:fontFamily="@font/pregular"
-                        android:hint="Jam tutup"
+                        android:hint="@string/jam_tutup"
                         android:inputType="text"
                         android:lines="1"
                         android:paddingHorizontal="15dp"
@@ -286,7 +286,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
-                    android:text="Nomor WA"
+                    android:text="@string/nomor_wa"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
@@ -298,7 +298,7 @@
                     android:layout_marginBottom="12dp"
                     android:background="@drawable/bg_input"
                     android:fontFamily="@font/pregular"
-                    android:hint="Masukan nomor whatsapp"
+                    android:hint="@string/masukan_nomor_whatsapp"
                     android:inputType="phone"
                     android:lines="1"
                     android:paddingLeft="15dp"
@@ -322,6 +322,7 @@
                     android:background="@drawable/bg_btn_login"
                     android:fontFamily="@font/pmedium"
                     android:text="@string/sign_up_btn"
+                    android:textColor="@color/white"
                     android:textAllCaps="false"
                     android:textSize="@dimen/fontReg" />
 
@@ -335,7 +336,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/pmedium"
-                        android:text="Sudah punya akun?"
+                        android:text="@string/sudah_punya_akun"
                         android:textColor="@color/black"
                         android:textSize="@dimen/fontSmall" />
 

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailedMontirInfo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ellips"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/backBtnDetail"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/mainColor"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/favBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fotoProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="144dp"
+                android:paddingTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <io.github.florent37.shapeofview.shapes.CircleView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:elevation="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/view"
+                    app:layout_constraintEnd_toEndOf="@+id/view"
+                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintStart_toStartOf="@+id/view"
+                    app:layout_constraintTop_toTopOf="@+id/view">
+
+                    <!-- YOUR CONTENT -->
+                    <ImageView
+                        android:id="@+id/fotoMontirDetail"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp" />
+
+
+                </io.github.florent37.shapeofview.shapes.CircleView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/marginleft"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fotoProfile">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/namaMontirDetail"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/psemibold"
+                        android:text="Nama Montir"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontReg" />
+
+                    <TextView
+                        android:id="@+id/spekDetail"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pmedium"
+                        android:text="spesialis"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontReg" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_home_24"
+                        android:drawableTint="@color/mainColor"
+                        android:drawablePadding="@dimen/paddingSmall"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/shop"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontMed" />
+
+                    <TextView
+                        android:id="@+id/bengkelDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plight"
+                        android:paddingLeft="29dp"
+                        android:text="Nama bengkel"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontSmall" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                        android:drawableTint="@color/mainColor"
+                        android:drawablePadding="@dimen/paddingSmall"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/jam_operasional"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontMed" />
+
+                    <TextView
+                        android:id="@+id/jamDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plight"
+                        android:paddingLeft="29dp"
+                        android:text="Jam Operasional"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontSmall" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_phone_24"
+                        android:drawableTint="@color/mainColor"
+                        android:drawablePadding="@dimen/paddingSmall"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/nomor_wa"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontMed" />
+
+                    <TextView
+                        android:id="@+id/nomorDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plight"
+                        android:paddingLeft="29dp"
+                        android:text="Nomor Telepon"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontSmall" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+                        android:drawableTint="@color/mainColor"
+                        android:drawablePadding="@dimen/paddingSmall"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/alamat"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontMed" />
+
+                    <TextView
+                        android:id="@+id/lokasiDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plight"
+                        android:paddingLeft="29dp"
+                        android:text="Alamat"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontSmall" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginSmall"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_star_border_24"
+                        android:drawableTint="@color/mainColor"
+                        android:drawablePadding="@dimen/paddingSmall"
+                        android:fontFamily="@font/pmedium"
+                        android:text="@string/rating"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fontMed" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.AppCompat.RatingBar"
+                        android:numStars="5"
+                        android:rating="0"
+                        android:progressBackgroundTint="@color/grayFont"
+                        android:progressTint="@color/mainColor" />
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_wa"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="@drawable/bg_btn_login"
+                    android:fontFamily="@font/pmedium"
+                    android:text="Whatsapp"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/fontReg" />
+
+                <Button
+                    android:id="@+id/btn_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/bg_btn_outline"
+                    android:fontFamily="@font/pmedium"
+                    android:text="@string/beri_penilaian"
+                    android:textColor="@color/mainColor"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/fontReg" />
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

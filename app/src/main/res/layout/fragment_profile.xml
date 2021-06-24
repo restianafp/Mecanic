@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".fragment.Profile">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -95,12 +95,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pmedium"
-                android:text="Akun"
+                android:text="@string/akun"
                 android:textColor="@color/black"
                 android:textSize="@dimen/fontReg"
                 android:layout_marginBottom="10dp"/>
 
             <LinearLayout
+                android:id="@+id/verifiedAcc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_list_menu"
@@ -114,7 +115,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Verifikasi Akun"
+                    android:text="@string/verifikasi_akun"
                     android:textSize="@dimen/fontMed"
                     android:fontFamily="@font/plight"
                     android:textColor="@color/black"
@@ -123,6 +124,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/settingLanguageCust"
                 android:background="@drawable/bg_list_menu"
                 android:padding="@dimen/paddingSmall"
                 android:layout_width="match_parent"
@@ -136,7 +138,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilih Bahasa"
+                    android:text="@string/pilih_bahasa"
                     android:textSize="@dimen/fontMed"
                     android:fontFamily="@font/plight"
                     android:textColor="@color/black"
@@ -158,7 +160,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bantuan"
+                    android:text="@string/bantuan"
                     android:textSize="@dimen/fontMed"
                     android:fontFamily="@font/plight"
                     android:textColor="@color/black"
@@ -181,7 +183,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Keluar Akun"
+                    android:text="@string/keluar_akun"
                     android:textSize="@dimen/fontMed"
                     android:fontFamily="@font/plight"
                     android:textColor="@color/black"

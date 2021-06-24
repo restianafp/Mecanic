@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardElevation="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/white">
 
     <LinearLayout
+        android:paddingVertical="@dimen/paddingSmall"
+        android:layout_marginVertical="@dimen/marginSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/paddingReg">
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_gravity="center_vertical"
-            android:id="@+id/fotoMontir"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/icon_nopic"/>
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:elevation="4dp"
+            app:shape_roundRect_bottomLeftRadius="10dp"
+            app:shape_roundRect_bottomRightRadius="10dp"
+            app:shape_roundRect_topLeftRadius="10dp"
+            app:shape_roundRect_topRightRadius="10dp"
+            >
+
+
+            <!-- YOUR CONTENT -->
+            <ImageView
+                android:id="@+id/fotoMontir2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                />
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="@dimen/marginleft">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/namaMontir"
@@ -31,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Montir"
                 android:fontFamily="@font/psemibold"
-                android:textSize="@dimen/fontReg"
+                android:textSize="@dimen/fontSmall"
                 android:textColor="@color/black"/>
 
             <TextView
@@ -40,8 +56,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Perusahaan"
-                android:fontFamily="@font/plight"
-                android:textSize="@dimen/fontSmall"
+                android:fontFamily="@font/pregular"
+                android:textSize="@dimen/fontXs"
                 android:textColor="@color/grayFont"/>
 
             <TextView
@@ -50,8 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Alamat"
-                android:fontFamily="@font/plight"
-                android:textSize="@dimen/fontSmall"
+                android:fontFamily="@font/pregular"
+                android:textSize="@dimen/fontXs"
                 android:textColor="@color/grayFont"/>
 
 
@@ -59,63 +75,100 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:paddingLeft="@dimen/paddingSmall"
                 android:weightSum="3">
 
-                <TextView
-                    android:id="@+id/rating"
-                    android:padding="@dimen/paddingSmall"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_star_border_24"
-                    android:text="Rating"
-                    android:drawablePadding="5dp"
-                    android:fontFamily="@font/plight"
-                    android:textSize="@dimen/fontSmall"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/jarak"
-                    android:padding="@dimen/paddingSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_baseline_location_on_24"
-                    android:drawablePadding="5dp"
-                    android:text="Jarak"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/plight"
-                    android:textSize="@dimen/fontSmall"
-                    android:textColor="@color/black"/>
+                    <ImageView
+                        android:layout_width="@dimen/iconsmall"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_baseline_star_border_24"/>
 
-                <TextView
-                    android:id="@+id/spek"
-                    android:padding="@dimen/paddingSmall"
+                    <TextView
+                        android:id="@+id/rating"
+                        android:paddingHorizontal="@dimen/paddingSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/pregular"
+                        android:textSize="@dimen/fontXs"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Spek"
-                    android:layout_weight="1"
-                    android:drawablePadding="5dp"
-                    android:drawableLeft="@drawable/ic_baseline_accessibility_24"
-                    android:fontFamily="@font/plight"
-                    android:textSize="@dimen/fontSmall"
-                    android:textColor="@color/black"/>
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/iconsmall"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_baseline_location_on_24"/>
+
+                    <TextView
+                        android:id="@+id/jarak"
+                        android:paddingHorizontal="@dimen/paddingSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5,1 km"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/pregular"
+                        android:textSize="@dimen/fontXs"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="@dimen/iconsmall"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_baseline_accessibility_24"/>
+
+                    <TextView
+                        android:id="@+id/spek"
+                        android:paddingHorizontal="@dimen/paddingSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spek"
+                        android:layout_weight="1"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/pregular"
+                        android:textSize="@dimen/fontXs"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/jamOperasi"
-                android:padding="@dimen/paddingSmall"
+            <LinearLayout
+                android:paddingLeft="@dimen/paddingSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_baseline_access_time_24"
-                android:text="Jam"
-                android:drawablePadding="5dp"
-                android:fontFamily="@font/plight"
-                android:textSize="@dimen/fontSmall"
-                android:textColor="@color/black"/>
+                android:layout_height="wrap_content">
 
+                <ImageView
+                    android:layout_width="@dimen/iconsmall"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_baseline_access_time_24"/>
+                <TextView
+                    android:id="@+id/jamOperasi"
+                    android:paddingHorizontal="@dimen/paddingSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jam"
+                    android:drawablePadding="5dp"
+                    android:fontFamily="@font/pregular"
+                    android:textSize="@dimen/fontXs"
+                    android:textColor="@color/black"/>
 
-
-
+            </LinearLayout>
 
 
 

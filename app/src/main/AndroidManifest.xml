@@ -11,20 +11,24 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mecanic">
-        <activity android:name=".EmailVerification"></activity>
-        <activity android:name=".EditProfile" />
-        <activity android:name=".SearchingPage" />
-        <activity android:name=".Homescreen" />
-        <activity android:name=".RegistMontirNext" />
-        <activity android:name=".RegistMontir" />
-        <activity android:name=".RegistCustomer" />
-        <activity android:name=".RolePage" />
-        <activity android:name=".LoginPage" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.EditProfileMontir"></activity>
+        <activity android:name=".activity.HomescreenMontir" />
+        <activity android:name=".activity.FilteredMontir" />
+        <activity android:name=".activity.DetailedMontirInfo" />
+        <activity android:name=".activity.EmailVerification" />
+        <activity android:name=".activity.EditProfile" />
+        <activity android:name=".activity.SearchingPage" />
+        <activity android:name=".activity.Homescreen" />
+        <activity android:name=".activity.RegistMontirNext" />
+        <activity android:name=".activity.RegistMontir" />
+        <activity android:name=".activity.RegistCustomer" />
+        <activity android:name=".activity.RolePage" />
+        <activity android:name=".activity.LoginPage" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

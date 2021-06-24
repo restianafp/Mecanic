@@ -4,4 +4,7 @@
     <dimen name="margin_top_home">50dp</dimen>
     <dimen name="fontMed">14dp</dimen>
     <dimen name="paddingReg">15dp</dimen>
+    <dimen name="fontXs">8dp</dimen>
+    <dimen name="iconsmall">12dp</dimen>
+    <dimen name="marginReg">10dp</dimen>
 </resources>

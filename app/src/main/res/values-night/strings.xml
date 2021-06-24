@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Halo,</string>
+    <string name="hello">Hal,</string>
+    <string name="pengunjung">Pengunjung</string>
+    <string name="rating">Rating</string>
+    <string name="spek">Spesialisasi</string>
+    <string name="promosi">Promosi</string>
+    <string name="edit_profil">Edit Profil</string>
 </resources>

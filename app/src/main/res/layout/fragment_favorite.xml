@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".Favorite">
+    tools:context=".fragment.Favorite">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -19,8 +19,9 @@
             android:layout_height="wrap_content"
             android:text="Favorit"
             android:layout_marginLeft="@dimen/marginleft"
-            android:fontFamily="@font/psemibold"
+            android:fontFamily="@font/pregular"
             android:textSize="30sp"
+            android:layout_marginBottom="@dimen/marginleft"
             android:textColor="@color/black"/>
 
         <ScrollView
@@ -31,6 +32,7 @@
                 android:id="@+id/viewMontirFull"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/marginleft"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginBottom="?actionBarSize"
                 tools:listitem="@layout/card_montir_full" />

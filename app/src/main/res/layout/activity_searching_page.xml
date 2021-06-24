@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchingPage"
+    tools:context=".activity.SearchingPage"
     android:orientation="vertical"
     android:background="@color/white">
 
@@ -48,53 +48,59 @@
 
     </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_marginHorizontal="@dimen/marginleft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:weightSum="4"
         android:orientation="horizontal">
 
-        <EditText
+
+        <SearchView
+            android:layout_weight="1"
             android:id="@+id/searchEDT"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@drawable/bg_input1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/bg_input"
             android:fontFamily="@font/pregular"
-            android:hint="Mau cari daerah apa?"
-            android:inputType="text"
             android:lines="1"
-            android:paddingLeft="50dp"
+            android:queryHint="Mau cari daerah apa?"
             android:textColor="@color/black"
-            android:textColorHint="@color/grayFont"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            android:textSize="15sp" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageButton
-        android:id="@+id/searchBtn"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/bg_input1"
-        android:src="@drawable/ic_baseline_search_24"
-        android:layout_marginLeft="@dimen/marginleft" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_marginHorizontal="@dimen/marginleft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hasil Pencarian"
-        android:textColor="@color/black"
-        android:textSize="@dimen/fontMed"
-        android:fontFamily="@font/plight"
-        android:layout_marginLeft="@dimen/marginleft"/>
+
+<!--    <TextView-->
+<!--        android:id="@+id/currentLoc"-->
+<!--        android:layout_marginHorizontal="@dimen/marginleft"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_gps_fixed_24"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:fontFamily="@font/plight"-->
+<!--        android:textSize="@dimen/fontMed"-->
+<!--        android:background="@drawable/bg_search_outline"-->
+<!--        android:paddingVertical="9dp"-->
+<!--        android:paddingLeft="15dp"-->
+<!--        />-->
+
+
+<!--    <TextView-->
+<!--        android:layout_marginHorizontal="@dimen/marginleft"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hasil Pencarian"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/fontMed"-->
+<!--        android:fontFamily="@font/plight"-->
+<!--        android:layout_marginLeft="@dimen/marginleft"/>-->
 
     <ScrollView
+        android:layout_marginHorizontal="@dimen/marginleft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
