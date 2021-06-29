@@ -46,8 +46,8 @@ public class EmailVerification extends AppCompatActivity {
     private void checkUserEmail() {
         if (user.isEmailVerified()){
             verifBtn.setVisibility(View.GONE);
-            title.setText("Email Terverifikasi");
-            desc.setText("Email Anda telah terverifikasi oleh sistem");
+            title.setText(R.string.email_isverified);
+            desc.setText(R.string.desc_verified);
         }else {
             sendVerifEmail();
         }
@@ -62,11 +62,11 @@ public class EmailVerification extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                             verifBtn.setVisibility(View.GONE);
-                            title.setText("Email Verifikasi Telah Dikirimkan");
-                            desc.setText("Periksa email Anda untuk melakukan verifikasi");
+                            title.setText(R.string.send_verification);
+                            desc.setText(R.string.desc_sendVerify);
                     }
                 });
-                Toast.makeText(EmailVerification.this,"Email telah dikirim",Toast.LENGTH_SHORT).show();
+                Toast.makeText(EmailVerification.this, R.string.toast_sendEmail,Toast.LENGTH_SHORT).show();
             }
         });
 

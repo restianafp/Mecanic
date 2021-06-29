@@ -150,7 +150,7 @@
                     android:layout_marginTop="@dimen/marginleft"
                     android:weightSum="2">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/motor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -160,10 +160,26 @@
                         <ImageView
                             android:layout_width="170dp"
                             android:layout_height="166dp"
-                            android:src="@drawable/motor" />
-                    </LinearLayout>
+                            android:src="@drawable/motor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/mbold"
+                            android:text="@string/motor"
+                            android:textSize="@dimen/fontMed"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.505"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/mobil"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -174,8 +190,24 @@
                             android:layout_width="170dp"
                             android:layout_height="166dp"
                             android:src="@drawable/mobil"
-                            />
-                    </LinearLayout>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:fontFamily="@font/mbold"
+                            android:text="@string/mobil"
+                            android:textSize="@dimen/fontMed"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.503"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 
@@ -192,6 +224,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pmedium"
                     android:text="@string/rekomendasi_montir"
+                    android:layout_marginBottom="@dimen/marginleft"
                     android:textColor="@color/black"
                     android:textSize="@dimen/fontReg" />
 
@@ -199,6 +232,7 @@
                     android:id="@+id/viewMontir"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/paddingSmall"
                     android:layout_marginBottom="?actionBarSize"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/card_recommended_montir"

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Berikan Penilaian"
+        android:text="@string/rating"
         android:textColor="@color/black"
         android:gravity="center_horizontal"
         android:layout_marginVertical="@dimen/marginSmall"
@@ -34,14 +34,15 @@
         android:progressTint="@color/mainColor" />
 
     <Button
-        android:id="@+id/btn_submit"
+        android:id="@+id/btn_submit_rating"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="@dimen/marginleft"
         android:layout_gravity="center_horizontal"
         android:layout_height="40dp"
+        android:layout_marginBottom="@dimen/marginSmall"
         android:background="@drawable/bg_btn_login"
         android:fontFamily="@font/pmedium"
-        android:text="Kirim"
+        android:text="@string/send"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="@dimen/fontReg" />

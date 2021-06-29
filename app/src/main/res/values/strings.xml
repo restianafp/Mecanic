@@ -69,5 +69,19 @@
     <string name="pilih_spesialisasi">Choose your speciality</string>
     <string name="notif_sukses">Hooray! Your account has been made. Welcome to Mecanic family.  For the security purpose, please verify your email as soon as possible!</string>
     <string name="lupa_password"><u>Forgot password?</u></string>
+    <string name="send">Send</string>
+    <string name="save">Save</string>
+    <string name="updated_data">Your data has been updated</string>
+    <string name="we_couldn_t_find_any_mechanic">We couldn\'t find any mechanic</string>
+    <string name="you_have_no_any_favorite_yet">You have no any favorite yet</string>
+    <string name="verif_email">Welcome back to our app. Seems like you don\'t verif your email yet. Please do a verification as soon as possible on profile menu.</string>
+    <string name="lokasi_anda">Your Location</string>
+    <string name="email_isverified">Email Terverifikasi</string>
+    <string name="desc_verified">Your email has been verified by our system</string>
+    <string name="send_verification">Email Verifikasi Telah Dikirimkan</string>
+    <string name="desc_sendVerify">Periksa email Anda untuk melakukan verifikasi</string>
+    <string name="toast_sendEmail">Email telah dikirim</string>
+    <string name="save_newData_pg">Menyimpan perubahan...</string>
+    <string name="succes_edit">Yeay! your data has been updated. You could explore more in our app</string>
 
 </resources>

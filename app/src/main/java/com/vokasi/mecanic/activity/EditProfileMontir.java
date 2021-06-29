@@ -51,7 +51,6 @@ public class EditProfileMontir extends AppCompatActivity {
     private Button saveBtn ;
     private Uri photo_location;
     private Spinner spekMontir;
-    private String[] spesialisasi;
     private List<String> list;
     private ArrayAdapter arrayAdapter;
     private FirebaseUser user;
@@ -152,7 +151,7 @@ public class EditProfileMontir extends AppCompatActivity {
             db.collection("Users").document(docID).update(montir).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.updated_data, Toast.LENGTH_SHORT).show();
                 }
             });
 

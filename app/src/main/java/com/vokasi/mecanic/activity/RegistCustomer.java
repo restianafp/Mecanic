@@ -187,7 +187,7 @@ public class RegistCustomer extends AppCompatActivity {
                 .setContentText(getResources().getText(R.string.notif_sukses))
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .setSummaryText(getString(R.string.notif_sumary_sukses))
-                        .setBigContentTitle(getResources().getText(R.string.notif_sukses)))
+                        .setBigContentTitle(getResources().getText(R.string.verifikasi_akun)))
                 .setColor(getResources().getColor(R.color.mainColor));
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);

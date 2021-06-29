@@ -1,8 +1,11 @@
 package com.vokasi.mecanic.fragment;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +26,10 @@ import com.vokasi.mecanic.R;
 import com.vokasi.mecanic.model.UserMontir;
 
 import java.util.ArrayList;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static androidx.core.content.ContextCompat.getSystemService;
+import static androidx.core.content.ContextCompat.getSystemServiceName;
 
 
 public class Favorite extends Fragment {
@@ -76,4 +83,6 @@ public class Favorite extends Fragment {
             }
         });
     }
+
+
 }

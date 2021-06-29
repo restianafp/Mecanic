@@ -3,9 +3,12 @@ package com.vokasi.mecanic.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -49,16 +52,19 @@ public class RegistMontirNext extends AppCompatActivity implements
     private Button daftar;
     private ImageButton gpsBtn;
     private Spinner spinner;
-    private String item, Kota, Area;
+    private String item, Kota, Area, motor, mobil;
     private TextView alamatEt, jamBuka, jamTutup;
     private EditText bengkelEt, phoneNumEtMont;
     TimePickerDialog timePickerDialog;
     Dialog dialog;
     private static final int REQUEST_LOCATION_PERMISSION=1;
     FusedLocationProviderClient fusedLocationProviderClient;
-    private String[] spesialisasi ={getString(R.string.pilih_spesialisasi), getString(R.string.motor), getString(R.string.mobil)};
+    private List<String> list;
     private ArrayAdapter arrayAdapter;
     private ArrayList<String> arrayList;
+    private NotificationManager notificationManager;
+    private static final int NOTIFICATION_ID=0;
+    private static final String CHANNEL_ID="ch1";
 
 
 
@@ -82,9 +88,15 @@ public class RegistMontirNext extends AppCompatActivity implements
         gpsBtn = findViewById(R.id.gpsBtn);
         phoneNumEtMont= findViewById(R.id.phoneNumEtMont);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
 
-        arrayAdapter = new ArrayAdapter(this, R.layout.spinner_kota, spesialisasi);
+        mobil = getResources().getString(R.string.mobil);
+        motor= getResources().getString(R.string.motor);
+        list = new ArrayList<String>();
+        list.add(motor);
+        list.add(mobil);
+        arrayAdapter = new ArrayAdapter(this, R.layout.spinner_kota, list);
         arrayAdapter.setDropDownViewResource(R.layout.card_kota);
         spinner.setAdapter(arrayAdapter);
         spinner.setSelection(0, false);
@@ -184,7 +196,8 @@ public class RegistMontirNext extends AppCompatActivity implements
         area.add(result.get(1));
         area.add(result.get(2));
         Kota = result.get(3);
-        Area = TextUtils.join(",",area);
+        Area = result.get(2);
+
         alamatEt.setText(alamat);
 
     }
@@ -217,7 +230,7 @@ public class RegistMontirNext extends AppCompatActivity implements
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Integer opsi = spinner.getSelectedItemPosition();
-        if (opsi==1){
+        if (opsi==0){
             item = "Motor";
         }else {
             item="Mobil";
@@ -249,7 +262,6 @@ public class RegistMontirNext extends AppCompatActivity implements
 
     private void savedFirebaseData() {
         progressDialog.setMessage("Menyimpan info akun...");
-
         Map<String, Object> montir = new HashMap<>();
         montir.put("accType", accType);
         montir.put("email", email);
@@ -274,6 +286,20 @@ public class RegistMontirNext extends AppCompatActivity implements
 
 
 
+    }
+
+    private void notifySuccess() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,
+                CHANNEL_ID)
+                .setContentTitle(getResources().getText(R.string.app_name))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentText(getResources().getText(R.string.notif_sukses))
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .setSummaryText(getString(R.string.notif_sumary_sukses))
+                        .setBigContentTitle(getResources().getText(R.string.verifikasi_akun)))
+                .setColor(getResources().getColor(R.color.mainColor));
+        Notification notification = builder.build();
+        notificationManager.notify(NOTIFICATION_ID, notification);
     }
 
 

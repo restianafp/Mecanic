@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,13 +40,14 @@ import com.vokasi.mecanic.R;
 import com.vokasi.mecanic.model.UserMontir;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DetailedMontirInfo extends AppCompatActivity {
-    private TextView nama, spek, bengkelTv, jamOperasi, nomorHp, lokasi;
+    private TextView nama, spek, bengkelTv, jamOperasi, nomorHp, lokasi, ratingBar;
     private ImageView fotoMontir, favBtn;
     private ImageButton backBtn;
     private Button waBtn, reviewBtn;
-    private RatingBar ratingBarDetail;
+    private float ratingInput;
     private FirebaseUser user;
     private ProgressDialog progressDialog;
     private String newRate, id;
@@ -63,7 +67,7 @@ public class DetailedMontirInfo extends AppCompatActivity {
         backBtn = findViewById(R.id.backBtnDetail);
         waBtn = findViewById(R.id.btn_wa);
         favBtn = findViewById(R.id.favBtn);
-        ratingBarDetail = findViewById(R.id.ratingBar);
+        ratingBar = findViewById(R.id.ratingDetail);
         reviewBtn = findViewById(R.id.btn_review);
 
         accType ="Montir";
@@ -105,18 +109,19 @@ public class DetailedMontirInfo extends AppCompatActivity {
                 kirimPesan();
             }
         });
-       ratingBarDetail.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-           @Override
-           public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-
-               saveRating();
-           }
-       });
+//       ratingBarDetail.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//           @Override
+//           public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+//
+//               saveRating();
+//           }
+//       });
 
        reviewBtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               savedFirestore();
+               showBottomSheet();
+
            }
        });
 
@@ -128,57 +133,80 @@ public class DetailedMontirInfo extends AppCompatActivity {
 
     }
 
-    private void saveRating() {
-        Float rate = ratingBarDetail.getRating();
-        String r = rate.toString();
-        FirebaseDatabase.getInstance().getReference("Rating").child(phoneNum).child(user.getUid()).child("ratings").setValue(r);
-        sumRating();
-    }
-
-    private float ratingSum = 0;
-
-    private void sumRating() {
-        FirebaseDatabase.getInstance().getReference("Rating").child(phoneNum).addValueEventListener(new ValueEventListener() {
+    private void showBottomSheet() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                DetailedMontirInfo.this, R.style.BottomSheetDialogTheme);
+        View bottomsheetview = LayoutInflater.from(getApplicationContext())
+                .inflate(
+                        R.layout.layout_bottom_sheet,
+                        (LinearLayout) findViewById(R.id.bottomSheetContainer)
+                );
+        bottomsheetview.findViewById(R.id.btn_submit_rating).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()){
-                    float ratingDb =  Float.parseFloat(""+ds.child("ratings").getValue());
-                    ratingSum = ratingSum + ratingDb;
+            public void onClick(View v) {
+                RatingBar rating = bottomsheetview.findViewById(R.id.ratingBarInput);
+                ratingInput = rating.getRating();
+                if (ratingInput!=0.0) {
+                    saveRating();
                 }
-                long numberReviews = snapshot.getChildrenCount();
-                Float text = ratingSum/numberReviews;
-                newRate = text.toString();
-                savedFirestore();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+            private void saveRating() {
+                Float rate = ratingInput;
+                String r = rate.toString();
+                FirebaseDatabase.getInstance().getReference("Rating").child(phoneNum).child(user.getUid()).child("ratings").setValue(r);
+                sumRating();
+            }
 
-    }
+            private float ratingSum = 0;
 
-    private void savedFirestore() {
-        CollectionReference mref = FirebaseFirestore.getInstance().collection("Users");
-        mref.whereEqualTo("email",email).addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                for (DocumentSnapshot doc:value){
-                    id = doc.getId();
-                }
-                mref.document(id).update("rating", newRate).addOnSuccessListener(new OnSuccessListener<Void>() {
+            private void sumRating() {
+                FirebaseDatabase.getInstance().getReference("Rating").child(phoneNum).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(getApplicationContext(), getString(R.string.sukses_rating), Toast.LENGTH_SHORT).show();
-                        recreate();
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot ds : snapshot.getChildren()){
+                            float ratingDb =  Float.parseFloat(""+ds.child("ratings").getValue());
+                            ratingSum = ratingSum + ratingDb;
+                        }
+                        long numberReviews = snapshot.getChildrenCount();
+                        Float text = ratingSum/numberReviews;
+                        newRate = text.toString();
+                        savedFirestore();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
+
+            }
+
+            private void savedFirestore() {
+                CollectionReference mref = FirebaseFirestore.getInstance().collection("Users");
+                mref.whereEqualTo("email",email).addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        for (DocumentSnapshot doc:value){
+                            id = doc.getId();
+                        }
+                        mref.document(id).update("rating", newRate).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(DetailedMontirInfo.this, getString(R.string.sukses_rating), Toast.LENGTH_SHORT).show();
+                                bottomSheetDialog.dismiss();
+                            }
+                        });
+                    }
+                });
+
+
             }
         });
-
-
+        bottomSheetDialog.setContentView(bottomsheetview);
+        bottomSheetDialog.show();
     }
+
 
     private void setIcon() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -256,12 +284,21 @@ public class DetailedMontirInfo extends AppCompatActivity {
 
     private void loadData(){
         nama.setText(firstName);
-        spek.setText(getString(R.string.spesialis) + getIntent().getStringExtra("spek"));
-        bengkelTv.setText(getIntent().getStringExtra("bengkel"));
+        bengkelTv.setText(bengkel);
         jamOperasi.setText(buka + "-" + tutup);
         nomorHp.setText(phoneNum);
         lokasi.setText(alamat.toUpperCase());
         Picasso.with(this).load(photo_uri).centerCrop().fit().into(fotoMontir);
+        ratingBar.setText(rating);
+        if (Locale.getDefault().getDisplayLanguage().startsWith("English")){
+            if (rating.startsWith("Motor")){
+                spek.setText(getString(R.string.spesialis) + " " +"Motorcycle");
+            }else {
+                spek.setText(getString(R.string.spesialis) + " " +"Car");
+            }
+        }else {
+            spek.setText(getString(R.string.spesialis) + " " +keahlian);
+        }
 
         progressDialog.dismiss();
 

@@ -63,4 +63,17 @@
     <string name="notif_sukses">Selamat! Akun Anda berhasil dibuat. Selamat menjadi bagian dari keluarga Mecanic. Demi kemanan akun, segera verifikasi email Anda.</string>
     <string name="lupa_password"><u>Lupa kata sandi?</u></string>
     <string name="hello">Halo,</string>
+    <string name="send">Kirim</string>
+    <string name="save">Simpan</string>
+    <string name="updated_data">Data telah berhasil diganti</string>
+    <string name="we_couldn_t_find_any_mechanic">Tidak ada montir di sekitar mu</string>
+    <string name="you_have_no_any_favorite_yet">Tidak ada montir di daftar favorit</string>
+    <string name="verif_email">Selamat datang kembali di Mecanic. Sepertinya kamu belum melakukan verifikasi email. Segera lakukan verifikasi email pada menu profil.</string>
+    <string name="lokasi_anda">Lokasi Anda</string>
+    <string name="send_verification">Email Verifikasi Telah Dikirimkan</string>
+    <string name="desc_sendVerify">Periksa email Anda untuk melakukan verifikasi</string>
+    <string name="toast_sendEmail">Email telah dikirim</string>
+    <string name="save_newData_pg">Menyimpan perubahan...</string>
+    <string name="email_isverified">Email Terverifikasi</string>
+    <string name="desc_verified">Email Anda telah terverifikasi oleh sistem</string>
 </resources>

@@ -36,9 +36,6 @@ public class Homescreen extends AppCompatActivity {
                     case R.id.favorite:
                         selectedFragment = new Favorite();
                         break;
-                    case R.id.notification:
-                        selectedFragment = new NotificationPage();
-                        break;
                     case R.id.profile:
                         selectedFragment= new Profile();
                         break;

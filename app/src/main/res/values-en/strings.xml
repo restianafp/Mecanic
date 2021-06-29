@@ -62,4 +62,18 @@
     <string name="rekomendasi_montir">Our recommendation</string>
     <string name="mau_cari_daerah_apa">Tell us your location</string>
     <string name="pilih_spesialisasi">Choose your speciality</string>
+    <string name="send">Send</string>
+    <string name="save">Save</string>
+    <string name="updated_data">Your data has been updated</string>
+    <string name="we_couldn_t_find_any_mechanic">We couldn\'t find any mechanic</string>
+    <string name="you_have_no_any_favorite_yet">You have no any favorite yet</string>
+    <string name="verif_email">Welcome back to our app. Seems like you don\'t verif your email yet. Please do a verification as soon as possible</string>
+    <string name="lokasi_anda">Your Location</string>
+    <string name="email_isverified">Verified Email</string>
+    <string name="desc_verified">Your email has been verified by our system</string>
+    <string name="desc_sendVerify">Check your email to verify</string>
+    <string name="toast_sendEmail">Email has been sent</string>
+    <string name="send_verification">Sending Email</string>
+    <string name="save_newData_pg">Save new update...</string>
+    <string name="succes_edit">Yeay! your data has been updated. You could explore more in our app</string>
 </resources>

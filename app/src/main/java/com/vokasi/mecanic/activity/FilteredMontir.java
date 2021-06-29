@@ -12,6 +12,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,8 @@ import java.util.Locale;
 
 public class FilteredMontir extends AppCompatActivity {
 
-    private TextView lokasi;
+    private TextView lokasi, textNull;
+    private ImageView viewNull;
     private static final int REQUEST_LOCATION_PERMISSION=1;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Geocoder geocoder;
@@ -49,8 +52,11 @@ public class FilteredMontir extends AppCompatActivity {
         lokasi = findViewById(R.id.lokasiResultFiltered);
         lokasi.setText(getIntent().getStringExtra("lokasi_user"));
         recyclerView = findViewById(R.id.hasilPencarianFiltered);
+        viewNull = findViewById(R.id.hasilNull);
+        textNull = findViewById(R.id.textHasilNull);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         geocoder = new Geocoder(FilteredMontir.this, Locale.getDefault());
+        textNull.setVisibility(View.GONE);
 
         loadMontir();
 
@@ -66,10 +72,16 @@ public class FilteredMontir extends AppCompatActivity {
                         Log.e("FireStore error", error.getMessage());
                         return;
                     }
-                    for (DocumentChange dc:value.getDocumentChanges()){
-                        if (dc.getType() == DocumentChange.Type.ADDED){
-                            listMontirFull.add(dc.getDocument().toObject(UserMontir.class));
+                    if (value.isEmpty()){
+                        viewNull.setImageDrawable(getResources().getDrawable(R.drawable.montir_null));
+                        textNull.setVisibility(View.VISIBLE);
+                    }else{
+                        for (DocumentChange dc:value.getDocumentChanges()){
+                            if (dc.getType() == DocumentChange.Type.ADDED){
+                                listMontirFull.add(dc.getDocument().toObject(UserMontir.class));
+                            }
                         }
+
                     }
                     adapterMontirFull = new AdapterMontirFull(FilteredMontir.this,listMontirFull );
                     recyclerView.setAdapter(adapterMontirFull);

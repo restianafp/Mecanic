@@ -107,13 +107,12 @@ public class Profile extends Fragment {
                     if(snapshot.getChildrenCount()>0) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             String namaDepan = "" + ds.child("firstName").getValue().toString();
-                            String namaAkhir = "" + ds.child("lastName").getValue().toString();
                             String emailUser = ""+ds.child("email").getValue().toString();
                             String nomorHP = ""+ds.child("phoneNum").getValue().toString();
                             Picasso.with(getContext()).load(ds.child("photo_uri").getValue().toString())
                                     .centerCrop().fit().into(fotoProfil);
 
-                            namaUser.setText(namaDepan +" "+ namaAkhir);
+                            namaUser.setText(namaDepan);
                             email.setText(emailUser);
                             nomorHp.setText(nomorHP);
                         }

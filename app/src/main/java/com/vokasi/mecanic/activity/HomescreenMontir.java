@@ -32,9 +32,6 @@ public class HomescreenMontir extends AppCompatActivity {
                     case R.id.berandaMontir:
                         selectedFragment = new HomeMontir();
                         break;
-                    case R.id.notificationMontir:
-                        selectedFragment = new NotificationMontir();
-                        break;
                     case R.id.profileMontir:
                         selectedFragment= new ProfileMontir();
                         break;

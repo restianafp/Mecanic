@@ -12,6 +12,7 @@ import android.location.Address;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +33,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -61,7 +63,7 @@ public class Home extends Fragment {
     private View homeView;
     private ImageButton btnLokasi;
     private ImageView fotoProfil;
-    private LinearLayout mobil, motor;
+    private ConstraintLayout mobil, motor;
     private TextView namaUser, lokasiUser, searchBar;
     private RecyclerView rekomMontir;
     private FirebaseAuth firebaseAuth;
@@ -157,27 +159,29 @@ public class Home extends Fragment {
             ActivityCompat.requestPermissions(getActivity(), new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
         } else{
-            fusedLocationProviderClient.requestLocationUpdates(getLocationRequest(),
-                    new LocationCallback(){
+            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(
+                    new OnSuccessListener<Location>() {
                         @Override
-                        public void onLocationResult(LocationResult locationResult){
-                            Location location=locationResult.getLastLocation();
+                        public void onSuccess(Location location) {
+                            //jika ada data lokasi
                             if(location!=null){
                                 try {
-                                List<Address> addresses = geocoder.getFromLocation(
-                                        location.getLatitude(), location.getLongitude(),1
-                                );
-                                String loc = addresses.get(0).getSubAdminArea();
-                                lokasiUser.setText(loc);
+                                    List<Address> addresses = geocoder.getFromLocation(
+                                            location.getLatitude(), location.getLongitude(),1
+                                    );
+                                    String loc = addresses.get(0).getSubAdminArea();
+                                    lokasiUser.setText(loc);
                                 }
                                 catch (IOException e){
-                                e.printStackTrace();
-                        }
-
+                                    e.printStackTrace();
+                                }
+                            } else{
+                                //jika tidak ada data lokasi
+                                lokasiUser.setText(R.string.data_not_found);
                             }
                         }
-
-                    },null );
+                    }
+            );
         }
     }
 

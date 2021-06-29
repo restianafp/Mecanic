@@ -10,10 +10,6 @@
         android:title="Favorit"
         android:icon="@drawable/ic_baseline_favorite_24" />
     <item
-        android:id="@+id/notification"
-        android:title="Notifikasi"
-        android:icon="@drawable/ic_baseline_notifications_24" />
-    <item
         android:id="@+id/profile"
         android:title="Profil"
         android:icon="@drawable/ic_baseline_person_24" />

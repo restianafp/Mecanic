@@ -54,11 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.hasChild(firebaseAuth.getUid())) {
-                            notifySuccess();
+                        if (!firebaseAuth.isEmailVerified()){
+                            notifyVerif();
+                        }
                             startActivity(new Intent(getApplicationContext(), Homescreen.class));
                             finish();
                     }else {
-                            notifySuccess();
+                        if (!firebaseAuth.isEmailVerified()){
+                            notifyVerif();
+                        }
                             startActivity(new Intent(getApplicationContext(), HomescreenMontir.class));
                             finish();
                     }
@@ -79,15 +83,16 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-    private void notifySuccess() {
+
+    private void notifyVerif() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,
                 CHANNEL_ID)
                 .setContentTitle(getResources().getText(R.string.app_name))
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentText(getResources().getText(R.string.notif_sukses))
+                .setContentText(getString(R.string.verif_email))
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .setSummaryText(getString(R.string.notif_sumary_sukses))
-                        .setBigContentTitle(getResources().getText(R.string.notif_sukses)))
+                        .setSummaryText(getString(R.string.verifikasi_akun))
+                        .setBigContentTitle(getResources().getText(R.string.verifikasi_akun)))
                 .setColor(getResources().getColor(R.color.mainColor));
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION_ID, notification);

@@ -259,15 +259,17 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/fontMed" />
 
-                    <RatingBar
-                        android:id="@+id/ratingBar"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/ratingDetail"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/Widget.AppCompat.RatingBar"
-                        android:numStars="5"
-                        android:rating="0"
-                        android:progressBackgroundTint="@color/grayFont"
-                        android:progressTint="@color/mainColor" />
+                        android:fontFamily="@font/plight"
+                        android:paddingLeft="29dp"
+                        android:text="@string/rating"
+                        android:textColor="@color/grayFont"
+                        android:textSize="@dimen/fontSmall" />
+
+
 
 
                 </LinearLayout>

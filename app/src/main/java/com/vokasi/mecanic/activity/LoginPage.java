@@ -2,7 +2,9 @@ package com.vokasi.mecanic.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -32,6 +34,7 @@ public class LoginPage extends AppCompatActivity {
     private EditText email, password;
     private Button btnLogin;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     private NotificationManager notificationManager;
     private static final int NOTIFICATION_ID=0;
     private static final String CHANNEL_ID="ch1";
@@ -109,11 +112,19 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    user = firebaseAuth.getCurrentUser();
                     progressDialog.dismiss();
+                    if (user!=null && !user.isEmailVerified()){
+                        notifyVerif();
+                    }
                     startActivity(new Intent(getApplicationContext(), Homescreen.class));
                     finish();
                 }else {
+                    user = firebaseAuth.getCurrentUser();
                     progressDialog.dismiss();
+                    if (user!=null && !user.isEmailVerified()){
+                        notifyVerif();
+                    }
                     startActivity(new Intent(getApplicationContext(), HomescreenMontir.class));
                     finish();
                 }
@@ -125,6 +136,20 @@ public class LoginPage extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void notifyVerif() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,
+                CHANNEL_ID)
+                .setContentTitle(getResources().getText(R.string.app_name))
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentText(getString(R.string.verif_email))
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .setSummaryText(getString(R.string.verifikasi_akun))
+                        .setBigContentTitle(getResources().getText(R.string.verifikasi_akun)))
+                .setColor(getResources().getColor(R.color.mainColor));
+        Notification notification = builder.build();
+        notificationManager.notify(NOTIFICATION_ID, notification);
     }
 
 

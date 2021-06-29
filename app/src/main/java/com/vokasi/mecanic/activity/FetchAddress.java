@@ -49,6 +49,8 @@ public class FetchAddress extends AsyncTask<Location, Void, ArrayList<String>> {
             addressParts.add(address.getSubLocality());
             addressParts.add(address.getLocality());
             addressParts.add(address.getSubAdminArea());
+            addressParts.add(String.valueOf(address.getLatitude()));
+            addressParts.add(String.valueOf(address.getLongitude()));
         }
         return addressParts;
     }

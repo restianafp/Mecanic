@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/backBtnFiltered"
-            android:text="Lokasi Anda"
+            android:text="@string/lokasi_anda"
             android:textColor="@color/black"
             android:textSize="@dimen/fontMed"
             android:fontFamily="@font/plight"
@@ -49,16 +49,45 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/marginleft">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:paddingTop="10dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/hasilPencarianFiltered"
-            tools:listitem="@layout/card_montir_full"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"/>
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/hasilPencarianFiltered"
+                tools:listitem="@layout/card_montir_full"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"/>
+
+            <ImageView
+                android:id="@+id/hasilNull"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.563" />
+
+            <TextView
+                android:id="@+id/textHasilNull"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pmedium"
+                android:text="@string/we_couldn_t_find_any_mechanic"
+                android:textSize="@dimen/fontMed"
+                android:paddingTop="@dimen/paddingSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hasilNull"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
